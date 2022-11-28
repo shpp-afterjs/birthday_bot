@@ -3,14 +3,6 @@ const nodeFetch = require('node-fetch');
 const { Telegraf } = require('telegraf')
 
 
-const users = [
-    {userName: 'quartz555', firstName: 'Bogdan', birthday: '05.05.2007'},
-    {userName: 'Miksam_13', firstName: 'Bogdan', birthday: '13.12.2008'},
-    {userName: 'vad22', firstName: 'Bogdan',  birthday: '05.05.2007'},
-    {userName: 'vl_pnk', firstName: 'Bogdan', birthday: '11.01.2008'},
-    {userName: 'ju_dio', firstName: 'Bogdan', birthday: '03.06.2009'}
-]
-
 async function getUsesrData(): Promise<void>{
     const resp = await nodeFetch(process.env.API_KEY)
     const data = await resp.json()
