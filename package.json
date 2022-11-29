@@ -1,10 +1,10 @@
 {
   "name": "birthday_bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,10 +12,20 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "node-fetch": "^2.6.1",
-    "telegraf": "^4.11.2",
-    "telegraf-ts": "^3.89.1"
+    "telegraf": "^4.11.2"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9"
-  }
+    "@types/node": "^18.11.9",
+    "tslint": "^6.1.3",
+    "typescript": "^4.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shpp-afterjs/birthday_bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shpp-afterjs/birthday_bot/issues"
+  },
+  "homepage": "https://github.com/shpp-afterjs/birthday_bot#readme",
+  "description": ""
 }
