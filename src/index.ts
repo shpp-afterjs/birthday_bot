@@ -3,7 +3,7 @@ dotenv.config()
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
 import fetchNode from 'node-fetch';
-import getCurrentAge from './utils/age';
+import getCurrentAge from './utils/age'
 
 interface user {
     username: string,
