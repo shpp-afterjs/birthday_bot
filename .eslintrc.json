@@ -12,9 +12,26 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "simple-import-sort"
     ],
     "rules": {
-        "no-return-assign":"off"
+        "no-return-assign":"off",
+        "object-curly-spacing":"off",
+        "no-bitwise":"off",
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": [
+            "error",
+            {
+              "groups": [
+                ["^react", "^@?\\w"],
+                ["^(@|components)(/.*|$)"],
+                ["^\\u0000"],
+                ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                ["^.+\\.?(css)$"]
+              ]
+            }
+          ]
     }
 }

@@ -1,9 +1,7 @@
 import fetchNode from 'node-fetch';
 async function getUserData(): Promise<any> {
 	try {
-		const resp = await fetchNode(process.env.API_KEY as string);
-		const data = await resp.json();
-		return data;
+		return await (await fetchNode(process.env.API_KEY as string)).json();
 	} catch (error) {
 		console.log(error);
 	}

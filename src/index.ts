@@ -1,20 +1,21 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
-import {Context, Telegraf} from 'telegraf';
-import {Update} from 'typegram';
 import cron from 'node-cron';
-import getCurrentAge from './utils/age';
+import { Context, Telegraf } from 'telegraf';
+import { Update } from 'typegram';
+
+import { User } from './interfaces/user.interface';
+import getBirthdays from './utils/get-birthdays';
+import getCurrentAge from './utils/get-current-age';
+import getSticker from './utils/getSticker';
 import texts from './utils/texts';
 import getUserData from './utils/usersData';
-import birthdaysCount from './utils/birthdayCounter';
-import {user} from './interfaces/interfaces';
-import getSticker from './utils/getSticker';
 
 const bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
 
 async function birthdayDay() {
 	const now = new Date();
-	const users:user[] = await getUserData();
+	const users:User[] = await getUserData();
 	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 	users.forEach(item => {
 		const arr = item.birthday.split('.');
@@ -36,7 +37,7 @@ cron.schedule('*/2 * * * *', () => {
 	timezone: 'Europe/Kiev',
 });
 bot.command('birthdaysWillBe', async ctx => {
-	const members = (await birthdaysCount()).birthdaysWillBe;
+	const members = (await getBirthdays()).birthdaysWillBe;
 	if (members) {
 		ctx.telegram.sendMessage(ctx.message.chat.id, `Didn't have birthday this year yet:\n${members}`);
 	} else {
@@ -45,7 +46,7 @@ bot.command('birthdaysWillBe', async ctx => {
 });
 
 bot.command('birthdaysLeft', async ctx => {
-	const members = (await birthdaysCount()).birthdaysLeft;
+	const members = (await getBirthdays()).birthdaysLeft;
 	if (members) {
 		ctx.telegram.sendMessage(ctx.message.chat.id, `Already had birthday this year:\n${members}`);
 	} else {
@@ -61,17 +62,17 @@ bot.telegram.setMyCommands([
 ]);
 
 bot.command('birthdaysList', async ctx => {
-	const users: user[] = await getUserData();
-	const str = users.reduce((str: string, user: any) => (str += `${user.username} - ${user.birthday}\n`), '');
+	const users: User[] = await getUserData();
+	const str = users.reduce((str: string, user: User) => (str += `${user.username} - ${user.birthday}\n`), '');
 	ctx.telegram.sendMessage(ctx.message.chat.id, str);
 });
 
 bot.command('whoHasThisAge', async ctx => {
-	const users:user[] = await getUserData();
+	const users:User[] = await getUserData();
 	const age = ctx.message.text.split(' ')[1];
 	if (age) {
-		const members = users.filter(((el: user) => getCurrentAge(el.birthday) === Number(age)));
-		const string = members.reduce((str: string, user: user) => (str += `${user.username} `), '');
+		const members = users.filter(((el: User) => getCurrentAge(el.birthday) === Number(age)));
+		const string = members.reduce((str: string, user: User) => (str += `${user.username} `), '');
 		ctx.telegram.sendMessage(ctx.message.chat.id, string || 'There are no members with this age');
 	} else {
 		ctx.telegram.sendMessage(ctx.message.chat.id, 'Invalid data');
@@ -79,9 +80,9 @@ bot.command('whoHasThisAge', async ctx => {
 });
 
 bot.command('getAge', async ctx => {
-	const users: user[] = await getUserData();
+	const users: User[] = await getUserData();
 	const userName = ctx.message.text.split(' ')[1].split('@')[1];
-	const obj = users.find((item: user) => item.username === userName);
+	const obj = users.find((item: User) => item.username === userName);
 	if (obj) {
 		const age = getCurrentAge(obj.birthday);
 		ctx.telegram.sendMessage(ctx.message.chat.id, `${obj.username} is ${age} years old`);

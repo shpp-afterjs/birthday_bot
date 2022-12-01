@@ -1,8 +1,9 @@
-import getUserData from './usersData';
-import {user} from '../interfaces/interfaces';
+import { User } from '../interfaces/user.interface';
 
-async function birthdaysCount(): Promise<{ birthdaysLeft: string; birthdaysWillBe: string; }> {
-	const users:user[] = await getUserData();
+import getUserData from './usersData';
+
+async function getBirthdays(): Promise<{ birthdaysLeft: string; birthdaysWillBe: string; }> {
+	const users:User[] = await getUserData();
 	const now = new Date();
 	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 	let birthdaysWillBe: string = '';
@@ -21,4 +22,4 @@ async function birthdaysCount(): Promise<{ birthdaysLeft: string; birthdaysWillB
 	return {birthdaysLeft, birthdaysWillBe};
 }
 
-export default birthdaysCount;
+export default getBirthdays;
