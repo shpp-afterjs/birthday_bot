@@ -1,4 +1,4 @@
-import stickers from './stickers';
+import stickers from '../constants/stickers';
 
 function getSticker(): string {
 	const min = 0;
