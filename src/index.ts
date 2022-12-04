@@ -24,6 +24,11 @@ cron.schedule('*/2 * * * *', () => {
 	scheduled: true,
 	timezone: 'Europe/Kiev',
 });
+
+bot.telegram.setMyCommands([
+	{command: '/help', description: 'help command'},
+	{command: '/about', description: 'about bot'},
+]);
 bot.command('getFutureBirthdays', async ctx => getFutureBirthdays(ctx));
 
 bot.command('getPastBirthdays', async ctx => getPastBirthdays(ctx));
