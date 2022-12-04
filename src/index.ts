@@ -5,6 +5,7 @@ import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
 
 import { birthdaysList } from './commands/birthdaysList';
+import { daysLeft } from './commands/days-left';
 import { getFutureBirthdays } from './commands/get-future-birthdays';
 import { getPastBirthdays } from './commands/get-past-birthdays';
 import { getAge } from './commands/getAge';
@@ -28,6 +29,8 @@ bot.command('getFutureBirthdays', async ctx => getFutureBirthdays(ctx));
 bot.command('getPastBirthdays', async ctx => getPastBirthdays(ctx));
 
 bot.command('birthdaysList', async ctx => birthdaysList(ctx));
+
+bot.command('getBirthday', async ctx => daysLeft(ctx));
 
 bot.command('whoHasThisAge', async ctx => whoHasThisAge(ctx));
 
