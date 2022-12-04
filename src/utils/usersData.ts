@@ -22,7 +22,7 @@ const zipArrays = (keysArray: string[], valuesArray: string[]) =>
 		keysArray.map((value, index) => [value, valuesArray[index]]),
 	);
 
-async function getUserData(): Promise<any> {
+async function getUserData(): Promise<User[] | undefined> {
 	try {
 		const response = (await sheets.spreadsheets.values.get({
 			spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
@@ -34,11 +34,9 @@ async function getUserData(): Promise<any> {
 		const rowItems = response.values.slice(1);
 		const users: User[] = rowItems.map((rowItem: RowItemType) => zipArrays(rowNames, rowItem));
 
-		console.log(users.filter((v, i, a) => a.findIndex(t => (t[NICKNAME_TG] === v[NICKNAME_TG])) === i));
-
 		return users.filter((v, i, a) => a.findIndex(t => (t[NICKNAME_TG] === v[NICKNAME_TG])) === i);
-	} catch (err) {
-		console.error(err);
+	} catch (error) {
+		console.log(error);
 	}
 }
 

@@ -10,9 +10,9 @@ const {BIRTHDAY, NICKNAME_TG} = RowItemNames;
 
 export async function getBirthdayDay(bot:Telegraf<Context<Update>>) {
 	const now = new Date();
-	const users:User[] = await getUserData();
+	const users:User[] | undefined = await getUserData();
 	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-	users.forEach((item: User) => {
+	users!.forEach((item: User) => {
 		const arr = item[BIRTHDAY].split('.');
 		const userDay = new Date(`${now.getFullYear()},${arr[1]},${arr[0]}`);
 		if (today.getTime() === userDay.getTime()) {
