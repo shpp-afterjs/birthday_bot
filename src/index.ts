@@ -4,12 +4,12 @@ import cron from 'node-cron';
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
 
-import { birthdaysList } from './commands/birthdaysList';
 import { daysLeft } from './commands/days-left';
+import { getAge } from './commands/get-age';
+import { getBirthdaysList } from './commands/get-birthdays-list';
 import { getFutureBirthdays } from './commands/get-future-birthdays';
 import { getPastBirthdays } from './commands/get-past-birthdays';
-import { getAge } from './commands/getAge';
-import { whoHasThisAge } from './commands/whoHasThisAge';
+import { whoHasThisAge } from './commands/who-has-this-age';
 import messages from './constants/messages';
 import { getBirthdayDay } from './utils/get-birthday-day';
 
@@ -26,14 +26,14 @@ cron.schedule('*/2 * * * *', () => {
 });
 
 bot.telegram.setMyCommands([
-	{command: '/help', description: 'help command'},
-	{command: '/about', description: 'about bot'},
+	{ command: '/help', description: 'help command' },
+	{ command: '/about', description: 'about bot' },
 ]);
 bot.command('getFutureBirthdays', async ctx => getFutureBirthdays(ctx));
 
 bot.command('getPastBirthdays', async ctx => getPastBirthdays(ctx));
 
-bot.command('birthdaysList', async ctx => birthdaysList(ctx));
+bot.command('birthdaysList', async ctx => getBirthdaysList(ctx));
 
 bot.command('getBirthday', async ctx => daysLeft(ctx));
 

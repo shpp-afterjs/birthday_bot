@@ -4,10 +4,10 @@ const days = 365.25;
 const num = 1000;
 
 function getCurrentAge(date: string): number {
-	const d = date.split('.');
-	if (typeof d[2] !== 'undefined') {
-		if (d[2] || Number(d[2]) === 0) {
-			date = d[2] + '.' + d[1] + '.' + d[0];
+	const arrDate = date.split('.');
+	if (typeof arrDate[2] !== 'undefined') {
+		if (arrDate[2] || Number(arrDate[2]) === 0) {
+			date = arrDate[2] + '.' + arrDate[1] + '.' + arrDate[0];
 		}
 
 		return ((new Date().getTime() - Number(new Date(date))) / (hours * min * days * num)) | 0;

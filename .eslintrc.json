@@ -17,7 +17,8 @@
     ],
     "rules": {
         "no-return-assign":"off",
-        "object-curly-spacing":"off",
+        "object-curly-spacing": ["error", "always"],
+        "quotes": ["error"],
         "no-bitwise":"off",
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": [
