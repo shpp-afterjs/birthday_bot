@@ -1,4 +1,4 @@
 export interface Birthdays{
-    futureBirthdays: string,
-    pastBirthdays: string
+    futureBirthdays: string[],
+    pastBirthdays: string[]
 }

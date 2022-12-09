@@ -15,13 +15,13 @@ async function getBirthdays(): Promise<Birthdays | undefined> {
 			const arrBirthday = item[BIRTHDAY].split('.');
 			const userDay = new Date(`${now.getFullYear()},${arrBirthday[1]},${arrBirthday[0]}`);
 			if (userDay.getTime() - today.getTime() < 0) {
-				obj.pastBirthdays += `${item[NICKNAME_TG]}\n`;
+				obj.pastBirthdays.push(item[NICKNAME_TG]);
 			} else if (userDay.getTime() - today.getTime() > 0) {
-				obj.futureBirthdays += `${item[NICKNAME_TG]}\n`;
+				obj.futureBirthdays.push(item[NICKNAME_TG]);
 			}
 
 			return obj;
-		}, { futureBirthdays: '', pastBirthdays: '' });
+		}, { futureBirthdays: [], pastBirthdays: [] });
 		return objectBirthdays;
 	}
 }
