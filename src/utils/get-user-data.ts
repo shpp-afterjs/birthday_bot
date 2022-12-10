@@ -11,7 +11,7 @@ async function getUserData(): Promise<User[] | undefined> {
 	try {
 		const response = (await sheets.spreadsheets.values.get({
 			spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
-			range: ['A1:J14'],
+			range: ['A1:ZZ'],
 			auth: process.env.GOOGLE_SPREADSHEET_API_KEY,
 		})).data;
 
@@ -20,6 +20,7 @@ async function getUserData(): Promise<User[] | undefined> {
 		const users = rowItems.map((rowItem: (typeof RowItemNames)[keyof typeof RowItemNames]) => zipArrays(rowNames, rowItem as unknown as string[])) as unknown as User[];
 
 		const valueArr = users.map(item => item[NICKNAME_TG]);
+		console.log(users.filter((item, idx) => valueArr.indexOf(item[NICKNAME_TG]) === idx));
 
 		return users.filter((item, idx) => valueArr.indexOf(item[NICKNAME_TG]) === idx);
 	} catch (error) {
