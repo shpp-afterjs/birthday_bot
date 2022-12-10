@@ -43,4 +43,6 @@ bot.command('getAge', async ctx => getAge(ctx));
 
 bot.command('about', async ctx => ctx.reply(messages.ABOUT_MESSAGE));
 bot.help(async ctx => ctx.reply(messages.HELP_MESSAGE));
+
 bot.launch();
+

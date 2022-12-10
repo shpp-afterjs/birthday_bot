@@ -20,7 +20,6 @@ async function fetchUserData(): Promise<User[] | undefined> {
 		const users = rowItems.map((rowItem: (typeof RowItemNames)[keyof typeof RowItemNames]) => zipArrays(rowNames, rowItem as unknown as string[])) as unknown as User[];
 
 		const valueArr = users.map(item => item[NICKNAME_TG]);
-		console.log(users.filter((item, idx) => valueArr.indexOf(item[NICKNAME_TG]) === idx));
 
 		return users.filter((item, idx) => valueArr.indexOf(item[NICKNAME_TG]) === idx);
 	} catch (error) {
