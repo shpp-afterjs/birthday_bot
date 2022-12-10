@@ -4,10 +4,10 @@ import cron from 'node-cron';
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
 
-import { daysLeft } from './commands/days-left';
 import { getAge } from './commands/get-age';
 import { getBirthdaysList } from './commands/get-birthdays-list';
 import { getFutureBirthdays } from './commands/get-future-birthdays';
+import { getLeftDays } from './commands/get-left-days';
 import { getPastBirthdays } from './commands/get-past-birthdays';
 import { whoHasThisAge } from './commands/who-has-this-age';
 import messages from './constants/messages';
@@ -35,7 +35,7 @@ bot.command('getPastBirthdays', async ctx => getPastBirthdays(ctx));
 
 bot.command('birthdaysList', async ctx => getBirthdaysList(ctx));
 
-bot.command('getBirthday', async ctx => daysLeft(ctx));
+bot.command('getBirthday', async ctx => getLeftDays(ctx));
 
 bot.command('whoHasThisAge', async ctx => whoHasThisAge(ctx));
 

@@ -7,7 +7,7 @@ const { google } = require('googleapis');
 const sheets = google.sheets('v4');
 
 const { NICKNAME_TG } = RowItemNames;
-async function getUserData(): Promise<User[] | undefined> {
+async function fetchUserData(): Promise<User[] | undefined> {
 	try {
 		const response = (await sheets.spreadsheets.values.get({
 			spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
@@ -28,4 +28,4 @@ async function getUserData(): Promise<User[] | undefined> {
 	}
 }
 
-export default getUserData;
+export default fetchUserData;
