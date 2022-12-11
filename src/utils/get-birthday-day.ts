@@ -3,14 +3,14 @@ import { Update } from 'typegram';
 
 import { RowItemNames } from '../enums/user.enum';
 
+import fetchUserData from './fetch-user-data';
 import getSticker from './get-sticker';
-import getUserData from './get-user-data';
 
 const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
 
 export async function getBirthdayDay(bot:Telegraf<Context<Update>>) {
 	const now = new Date();
-	const users = await getUserData();
+	const users = await fetchUserData();
 	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 	if (users) {
 		for (let i = 0; i < users.length; i++) {
