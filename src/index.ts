@@ -5,9 +5,9 @@ import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
 
 import { getAge } from './commands/get-age';
+import { getBirthday } from './commands/get-birthday';
 import { getBirthdaysList } from './commands/get-birthdays-list';
 import { getFutureBirthdays } from './commands/get-future-birthdays';
-import { getLeftDays } from './commands/get-left-days';
 import { getPastBirthdays } from './commands/get-past-birthdays';
 import { whoHasThisAge } from './commands/who-has-this-age';
 import messages from './constants/messages';
@@ -29,13 +29,13 @@ bot.telegram.setMyCommands([
 	{ command: '/help', description: 'help command' },
 	{ command: '/about', description: 'about bot' },
 ]);
-bot.command('getFutureBirthdays', async ctx => getFutureBirthdays(ctx));
+bot.command('/futureBirthdays', async ctx => getFutureBirthdays(ctx));
 
-bot.command('getPastBirthdays', async ctx => getPastBirthdays(ctx));
+bot.command('/pastBirthdays', async ctx => getPastBirthdays(ctx));
 
-bot.command('birthdaysList', async ctx => getBirthdaysList(ctx));
+bot.command('birthdays', async ctx => getBirthdaysList(ctx));
 
-bot.command('getBirthday', async ctx => getLeftDays(ctx));
+bot.command('getBirthday', async ctx => getBirthday(ctx));
 
 bot.command('whoHasThisAge', async ctx => whoHasThisAge(ctx));
 

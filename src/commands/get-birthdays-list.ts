@@ -11,6 +11,7 @@ export async function getBirthdaysList(ctx: Context) {
 
 	if (users) {
 		const userBirthday = users.reduce((str: string, user: User) => (str += `${user[NICKNAME_TG]} - ${user[BIRTHDAY]}\n`), '');
-		ctx.telegram.sendMessage(ctx.message!.chat.id, userBirthday);
+		const message = users ? userBirthday : 'There are no users';
+		ctx.telegram.sendMessage(ctx.message!.chat.id, message);
 	}
 }
