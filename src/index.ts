@@ -29,9 +29,9 @@ bot.telegram.setMyCommands([
 	{ command: '/help', description: 'help command' },
 	{ command: '/about', description: 'about bot' },
 ]);
-bot.command('/futureBirthdays', async ctx => getFutureBirthdays(ctx));
+bot.command('futureBirthdays', async ctx => getFutureBirthdays(ctx));
 
-bot.command('/pastBirthdays', async ctx => getPastBirthdays(ctx));
+bot.command('pastBirthdays', async ctx => getPastBirthdays(ctx));
 
 bot.command('birthdays', async ctx => getBirthdaysList(ctx));
 

@@ -9,5 +9,6 @@ export enum RowItemNames {
     DESIRED_ACTIVITIES = 'Хочу делать',
     PROGRAMMING_TIME = 'Сколько времени в неделю в среднем уделяешь программированию(в часах)?',
     WISHES = 'Чего хотелось бы больше?',
-    NICKNAME_TG = 'Ник в телеграме'
+    NICKNAME_TG = 'Ник в телеграме',
+    STATUS = 'Статус'
 }
