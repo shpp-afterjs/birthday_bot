@@ -1,5 +1,6 @@
 
 import { RowItemNames } from '../enums/user.enum';
+import { UserStatusEnum } from '../enums/user-status.enum';
 
 const {
 	CREATED_AT,
@@ -12,6 +13,7 @@ const {
 	PROGRAMMING_TIME,
 	WISHES,
 	NICKNAME_TG,
+	STATUS,
 } = RowItemNames;
 
 export interface User {
@@ -24,5 +26,6 @@ export interface User {
     [DESIRED_ACTIVITIES]: string,
     [PROGRAMMING_TIME]: string,
     [WISHES]: string,
-    [NICKNAME_TG]: string
+    [NICKNAME_TG]: string,
+    [STATUS]: UserStatusEnum
 }

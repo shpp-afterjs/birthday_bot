@@ -3,14 +3,15 @@ import { Context } from 'telegraf';
 import getBirthdays from '../utils/get-birthdays';
 
 export async function getPastBirthdays(ctx:Context) {
-	const pastBirthdays = await getBirthdays();
+	const birthdays = await getBirthdays();
 
-	if (pastBirthdays) {
-		const users = pastBirthdays.pastBirthdays.join('\n');
-		const message = users
-			? `Already had birthday this year:\n${users}`
-			: 'There are no members who already had birthday this year.';
+	let message = 'There are no members who already had birthday this year';
 
-		ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+	if (birthdays && birthdays.pastBirthdays.length) {
+		const usersBirthday = birthdays.pastBirthdays.reduce((res, nickname) => (res += `@${nickname}\n`), '');
+
+		message = `Already had birthday this year:\n${usersBirthday}`;
 	}
+
+	await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
 }

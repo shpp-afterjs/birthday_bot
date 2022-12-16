@@ -1,4 +1,5 @@
 import { RowItemNames } from '../enums/user.enum';
+import { UserStatusEnum } from '../enums/user-status.enum';
 import { User } from '../interfaces/user.interface';
 
 import { zipArrays } from './zip-arrays';
@@ -6,7 +7,7 @@ import { zipArrays } from './zip-arrays';
 const { google } = require('googleapis');
 const sheets = google.sheets('v4');
 
-const { NICKNAME_TG } = RowItemNames;
+const { NICKNAME_TG, STATUS } = RowItemNames;
 async function fetchUserData(): Promise<User[] | undefined> {
 	try {
 		const response = (await sheets.spreadsheets.values.get({
@@ -21,9 +22,9 @@ async function fetchUserData(): Promise<User[] | undefined> {
 
 		const valueArr = users.map(item => item[NICKNAME_TG]);
 
-		return users.filter((item, idx) => valueArr.indexOf(item[NICKNAME_TG]) === idx);
+		return users.filter((user, index) => valueArr.indexOf(user[NICKNAME_TG]) === index && user[STATUS] === UserStatusEnum.Active);
 	} catch (error) {
-		console.log(error);
+		console.log('fetchUserData: ', error);
 	}
 }
 

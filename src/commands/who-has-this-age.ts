@@ -10,18 +10,20 @@ const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
 export async function whoHasThisAge(ctx:Context) {
 	try {
 		const users = await fetchUserData();
+		let message = 'Age is required';
+
 		if (/\s+/.test((ctx.message as Message.TextMessage).text)) {
 			const age = (ctx.message as Message.TextMessage).text.split(/\s+/)[1];
 			if (users) {
 				const sortedUsers = users.filter(((el: User) => getCurrentAge(el[BIRTHDAY]) === Number(age)));
-				const messageString = sortedUsers.reduce((str: string, user: User) => (str += `${user[NICKNAME_TG]}\n`), '');
-				const message = messageString ? messageString : 'There are no members with this age';
-				ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+				const messageString = sortedUsers.reduce((str: string, user: User) => (str += `@${user[NICKNAME_TG]}\n`), '');
+
+				message = messageString ? messageString : 'There are no members with this age';
 			}
-		} else {
-			ctx.telegram.sendMessage(ctx.message!.chat.id, 'Age is required');
 		}
+
+		await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
 	} catch (error) {
-		console.log(error);
+		console.log('whoHasThisAge: ', error);
 	}
 }
