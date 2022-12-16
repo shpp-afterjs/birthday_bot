@@ -5,7 +5,13 @@
     "start": "ts-node src/index.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Valeria Proshachenko<vproshachenko@gmail.com>",
+  "contributors": [
+    {
+      "name": "Viktoriia Hrechukha",
+      "email": "viktoriia.hrechukha@gmail.com"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "@types/node-cron": "^3.0.6",
