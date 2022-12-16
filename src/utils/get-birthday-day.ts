@@ -1,3 +1,4 @@
+
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
 
@@ -9,17 +10,22 @@ import getSticker from './get-sticker';
 const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
 
 export async function getBirthdayDay(bot:Telegraf<Context<Update>>) {
-	const now = new Date();
-	const users = await fetchUserData();
-	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-	if (users) {
-		for (let i = 0; i < users.length; i++) {
-			const arrBirthday = users[i][BIRTHDAY].split('.');
-			const userDay = new Date(`${now.getFullYear()},${arrBirthday[1]},${arrBirthday[0]}`);
-			if (today.getTime() === userDay.getTime()) {
-				bot.telegram.sendMessage(process.env.CHAT_ID as string, `@${users[i][NICKNAME_TG]} happy birthday!`);
-				bot.telegram.sendSticker(process.env.CHAT_ID as string, getSticker());
+	try {
+		const now = new Date();
+		const users = await fetchUserData();
+		const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+		if (users) {
+			for (let i = 0; i < users.length; i++) {
+				const arrBirthday = users[i][BIRTHDAY].split('.');
+				const userDay = new Date(`${now.getFullYear()},${arrBirthday[1]},${arrBirthday[0]}`);
+
+				if (today.getTime() === userDay.getTime()) {
+					bot.telegram.sendMessage(process.env.CHAT_ID as string, `@${users[i][NICKNAME_TG]} happy birthday!`);
+					bot.telegram.sendSticker(process.env.CHAT_ID as string, getSticker());
+				}
 			}
 		}
+	} catch (error) {
+		console.log('getBirthdayDay: ', error);
 	}
 }
