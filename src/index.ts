@@ -15,10 +15,7 @@ import { getBirthdayDay } from './utils/get-birthday-day';
 
 const bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
 
-bot.command('birthdayDay', async () => {
-	getBirthdayDay(bot);
-});
-cron.schedule('*/2 * * * *', () => {
+cron.schedule('0 9 * * *', () => {
 	getBirthdayDay(bot);
 }, {
 	scheduled: true,
@@ -29,9 +26,9 @@ bot.telegram.setMyCommands([
 	{ command: '/help', description: 'help command' },
 	{ command: '/about', description: 'about bot' },
 ]);
-bot.command('/futureBirthdays', async ctx => getFutureBirthdays(ctx));
+bot.command('futureBirthdays', async ctx => getFutureBirthdays(ctx));
 
-bot.command('/pastBirthdays', async ctx => getPastBirthdays(ctx));
+bot.command('pastBirthdays', async ctx => getPastBirthdays(ctx));
 
 bot.command('birthdays', async ctx => getBirthdaysList(ctx));
 
