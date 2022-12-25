@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 export enum RowItemNames {
     CREATED_AT = 'Отметка времени',
     EMAIL = 'Адрес электронной почты',

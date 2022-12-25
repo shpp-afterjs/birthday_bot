@@ -9,6 +9,7 @@ import { getBirthday } from './commands/get-birthday';
 import { getBirthdaysList } from './commands/get-birthdays-list';
 import { getFutureBirthdays } from './commands/get-future-birthdays';
 import { getPastBirthdays } from './commands/get-past-birthdays';
+import { getZodiac } from './commands/get-zodiac';
 import { whoHasThisAge } from './commands/who-has-this-age';
 import messages from './constants/messages';
 import { getBirthdayDay } from './utils/get-birthday-day';
@@ -37,6 +38,8 @@ bot.command('getBirthday', async ctx => getBirthday(ctx));
 bot.command('whoHasThisAge', async ctx => whoHasThisAge(ctx));
 
 bot.command('getAge', async ctx => getAge(ctx));
+
+bot.command('getZodiac', async ctx => getZodiac(ctx));
 
 bot.command('about', async ctx => ctx.reply(messages.ABOUT_MESSAGE));
 bot.help(async ctx => ctx.reply(messages.HELP_MESSAGE));

@@ -9,10 +9,11 @@ It also has an additional functionality as getting user age,
 
 ## :computer:Technologies
 Project is created with:
-* nodejs 16.17.1
-* telegraf
-* typescript
-* google sheets
+* Nodejs 16.17.1
+* Npm 8.15.0
+* Telegraf
+* Typescript
+* Google sheets apis
 
 ## :gear:Commands
 
@@ -40,20 +41,22 @@ Project is created with:
 https://www.google.com/sheets/about/
 2. __Get your google spreadsheet api key and take spreadsheet id from url__
 3. __Fill spreadsheet with correspoding coloumns__:
-* Отметка времени: number
-* Адрес электронной почты: string
-* Ник гитхаба: string
-* лет: number
-* Мотивация того, почему ты тут: string
-* Дата рождения (для вкусняшек): string
-* Хочу делать: string
-* Сколько времени в неделю в среднем уделяешь программированию(в часах)?: string
-* Чего хотелось бы больше?: string
-* Ник в телеграме: string
-* Статус: string
+```
+Отметка времени: number
+Адрес электронной почты: string
+Ник гитхаба: string
+лет: number
+Мотивация того, почему ты тут: string
+Дата рождения (для вкусняшек): string
+Хочу делать: string
+Сколько времени в неделю в среднем уделяешь программированию(в часах)?: string
+Чего хотелось бы больше?: string
+Ник в телеграме: string
+Статус: string
+```
 
 ## Available Scripts
-To run this project, install it locally using npm:
+This commands help to run this bot:
 ```
 $ npm install
 $ npm start
