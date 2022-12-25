@@ -8,10 +8,10 @@ export async function getFutureBirthdays(ctx:Context) {
 	let message = 'There are no members who didn\'t have birthday yet';
 
 	if (birthdays && birthdays.futureBirthdays.length) {
-		const usersBirthday = birthdays.futureBirthdays.reduce((res, nickname) => (res += `@${nickname}\n`), '');
+		const usersBirthday = birthdays.futureBirthdays.reduce((res, nickname) => (res += `<a href="t.me/${nickname}">${nickname}</a>\n`), '');
 
 		message = `Didn't have birthday this year yet:\n${usersBirthday}`;
 	}
 
-	await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+	await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML' });
 }

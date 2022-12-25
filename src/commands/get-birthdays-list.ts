@@ -10,8 +10,11 @@ export async function getBirthdaysList(ctx: Context) {
 	const users = await fetchUserData();
 
 	if (users) {
-		const userBirthday = users.reduce((str: string, user: User) => (str += `@${user[NICKNAME_TG]} - ${user[BIRTHDAY]}\n`), '');
+		const userBirthday = users.reduce((str: string, user: User) => {
+			str += `<a href="t.me/${user[NICKNAME_TG]}">${user[NICKNAME_TG]}</a> - ${user[BIRTHDAY]}\n`;
+			return str;
+		}, '');
 		const message = users ? userBirthday : 'There are no users';
-		await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+		await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML' });
 	}
 }
