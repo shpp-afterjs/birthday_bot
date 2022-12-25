@@ -1,20 +1,20 @@
 # Telegram Birthday Bot
 
 
-## 📋Description
+## 📋 Description
 This bot was developed to help you to remind about chat members birthdays.
 It also has an additional functionality as getting user age,
  or checking who among members already had birthday this year.
 
 
-## :computer:Technologies
+## :computer: Technologies
 Project is created with:
 * nodejs 16.17.1
 * telegraf
 * typescript
 * google sheets
 
-## :gear:Commands
+## :gear: Commands
 
 /birthdays
 : list of all birthdays
@@ -35,7 +35,7 @@ Project is created with:
 : people who has this age
 
 
-## :books:How to use
+## :books: How to use
 1. __Create an empty google sheet on__
 https://www.google.com/sheets/about/
 2. __Get your google spreadsheet api key and take spreadsheet id from url__
