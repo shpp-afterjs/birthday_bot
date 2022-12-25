@@ -11,7 +11,9 @@ export async function getBirthdaysList(ctx: Context) {
 
 	if (users) {
 		const userBirthday = users.reduce((str: string, user: User) => {
-			str += `<a href="t.me/${user[NICKNAME_TG]}">${user[NICKNAME_TG]}</a> - ${user[BIRTHDAY]}\n`;
+			const userNickname: string = user[NICKNAME_TG].replace('@', '');
+			str += `<a href="t.me/${userNickname}">${userNickname}</a> - ${user[BIRTHDAY]} \n`;
+
 			return str;
 		}, '');
 		const message = users ? userBirthday : 'There are no users';

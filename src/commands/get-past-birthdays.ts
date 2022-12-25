@@ -8,7 +8,12 @@ export async function getPastBirthdays(ctx: Context) {
 	let message = 'There are no members who already had birthday this year';
 
 	if (birthdays && birthdays.pastBirthdays.length) {
-		const usersBirthday = birthdays.pastBirthdays.reduce((res, nickname) => (res += `<a href="t.me/${nickname}">${nickname}</a>\n`), '');
+		const usersBirthday = birthdays.pastBirthdays.reduce((res, nickname) => {
+			nickname = nickname.replace('@', '');
+			const linkToUser: string = `<a href="t.me/${nickname}">${nickname}</a>`;
+
+			return (res += `${linkToUser} \n`)
+		}, '');
 
 		message = `Already had birthday this year:\n${usersBirthday}`;
 	}

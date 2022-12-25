@@ -7,7 +7,7 @@ import fetchUserData from '../utils/fetch-user-data';
 import getCurrentAge from '../utils/get-current-age';
 
 const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
-export async function whoHasThisAge(ctx:Context) {
+export async function whoHasThisAge(ctx: Context) {
 	try {
 		const users = await fetchUserData();
 		let message = 'Age is required';
@@ -16,7 +16,13 @@ export async function whoHasThisAge(ctx:Context) {
 			const age = (ctx.message as Message.TextMessage).text.split(/\s+/)[1];
 			if (users) {
 				const sortedUsers = users.filter(((el: User) => getCurrentAge(el[BIRTHDAY]) === Number(age)));
-				const messageString = sortedUsers.reduce((str: string, user: User) => (str += `@${user[NICKNAME_TG]}\n`), '');
+
+				const messageString = sortedUsers.reduce((str: string, user: User) => {
+					const nickname: string = user[NICKNAME_TG].replace('@', '');
+					const linkToUser: string = `<a href="t.me/${nickname}">${nickname}</a>`;
+
+					return (str += `${linkToUser} \n`);
+				}, '');
 
 				message = messageString ? messageString : 'There are no members with this age';
 			}

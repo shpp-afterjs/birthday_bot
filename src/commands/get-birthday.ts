@@ -16,11 +16,17 @@ export async function getBirthday(ctx:Context) {
 
 		if (userName && users) {
 			const user = users.find((item: User) => item[NICKNAME_TG] === userName);
-
 			const daysToBirthdayLeft = await getBirthdayDaysLeft(user);
-			message = user
-				? `There are ${daysToBirthdayLeft} days until <a href="t.me/${user[NICKNAME_TG]}">${user[NICKNAME_TG]}</a> birthday! \n📍${user[BIRTHDAY]}`
-				: 'There are no members with this username';
+
+			if (user) {
+				const userNickname: string = user[NICKNAME_TG].replace('@', '')
+				const linkToUser: string = `<a href="t.me/${userNickname}">${userNickname}</a>`;
+
+				message = `There are ${daysToBirthdayLeft} days until ${linkToUser} birthday! \n📍${user[BIRTHDAY]}`
+			}
+			else {
+				message = 'There are no members with this username';
+			}
 		}
 	}
 
