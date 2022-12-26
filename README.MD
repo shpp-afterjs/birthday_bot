@@ -1,11 +1,13 @@
 # <p align="center"> Telegram Birthday Bot <br> ![Bot quality][bot_quality] ![Bot property][bot_property] ![Made with][made_with] ![Contributors][contributors] ![Top Language][top_language] ![Size of repo][repo_size] <br> ![Stars][stars] ![Issues][issues] ![Pull Request][pull_request]</p>
 
+<br>
+
 ## <p align="center">:clipboard: Description</p>
 <p align="center">This bot was developed to help you to remind about chat members birthdays. <br>
 It also has an additional functionality as getting user age,
 or checking who among members already had birthday this year.</p>
 
----
+<br> <br>
 
 ## :computer: Technologies
 
@@ -19,8 +21,7 @@ Project is created with:
 
 >* **google sheets**
 
-
----
+<br> <br>
 
 ## :gear: Commands
 
@@ -33,7 +34,7 @@ Project is created with:
 | ```/futureBirthdays``` | : list of members who will have birthday this year |
 | ```/whoHasThisAge``` {number} | : people who has this age |
 
----
+<br> <br>
 
 ## <p align="center">:books: How to use</p>
 1. **Create an empty google sheet [here][googlesheets_link]**
@@ -51,7 +52,7 @@ Project is created with:
 * **Telegram nickname**: *string*
 * **Status**: *string*
 
----
+<br> <br>
 
 ## <p align="center">Available Scripts</p>
 <p align="center">To run this project, install it locally using npm:</p>
@@ -61,7 +62,7 @@ $ npm install
 $ npm start
 ```
 
----
+<br> <br>
 
 ## Authors
 
