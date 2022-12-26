@@ -9,7 +9,7 @@ import getSticker from './get-sticker';
 
 const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
 
-export async function getBirthdayDay(bot:Telegraf<Context<Update>>) {
+export async function getBirthdayDay(bot: Telegraf<Context<Update>>) {
 	const now = new Date();
 	const users = await fetchUserData();
 	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());

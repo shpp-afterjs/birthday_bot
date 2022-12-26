@@ -28,7 +28,7 @@ export async function whoHasThisAge(ctx: Context) {
 			}
 		}
 
-		await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+		await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML' });
 	} catch (error) {
 		console.log('whoHasThisAge: ', error);
 	}

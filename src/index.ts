@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import cron from 'node-cron';
 import { Context, Telegraf } from 'telegraf';
-import { Update } from 'typegram';
+import { InlineQueryResult, Update } from 'typegram';
 
 import about from './commands/about';
 import { getAge } from './commands/get-age';
@@ -12,37 +12,44 @@ import { getFutureBirthdays } from './commands/get-future-birthdays';
 import { getPastBirthdays } from './commands/get-past-birthdays';
 import help from './commands/help';
 import { replyFuncWithAction } from './commands/reply-func-with-action';
+import start from './commands/start';
 import { whoHasThisAge } from './commands/who-has-this-age';
+import BOT_COMMANDS from './constants/bot-commands';
+import INLINE_QUERY from './constants/inline-query';
 import typingTime from './constants/time';
 import { getBirthdayDay } from './utils/get-birthday-day';
+import team from './utils/inline-query/team';
 
-const bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
+const Bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
+
+console.log('connected');
 
 cron.schedule('0 9 * * *', () => {
-	getBirthdayDay(bot);
+	getBirthdayDay(Bot);
 }, {
 	scheduled: true,
 	timezone: 'Europe/Kiev',
 });
 
-bot.telegram.setMyCommands([
-	{ command: '/help', description: 'help command' },
-	{ command: '/about', description: 'about bot' },
-]);
-bot.command('futureBirthdays', async ctx => replyFuncWithAction(getFutureBirthdays, ctx, typingTime));
+Bot.telegram.setMyCommands(BOT_COMMANDS);
 
-bot.command('pastBirthdays', async ctx => replyFuncWithAction(getPastBirthdays, ctx, typingTime));
+Bot.inlineQuery('team', ctx => ctx.answerInlineQuery(team((INLINE_QUERY.team)) as InlineQueryResult[]));
 
-bot.command('birthdays', async ctx => replyFuncWithAction(getBirthdaysList, ctx, typingTime));
+Bot.command('future_birthdays', async ctx => replyFuncWithAction(getFutureBirthdays, ctx, typingTime));
 
-bot.command('getBirthday', async ctx => replyFuncWithAction(getBirthday, ctx, typingTime));
+Bot.command('past_birthdays', async ctx => replyFuncWithAction(getPastBirthdays, ctx, typingTime));
 
-bot.command('whoHasThisAge', async ctx => replyFuncWithAction(whoHasThisAge, ctx, typingTime));
+Bot.command('birthdays', async ctx => replyFuncWithAction(getBirthdaysList, ctx, typingTime));
 
-bot.command('getAge', async ctx => replyFuncWithAction(getAge, ctx, typingTime));
+Bot.command('get_birthday', async ctx => replyFuncWithAction(getBirthday, ctx, typingTime));
 
-bot.command('about', async ctx => replyFuncWithAction(about, ctx, typingTime));
-bot.help(async ctx => replyFuncWithAction(help, ctx, typingTime));
+Bot.command('who_has_this_age', async ctx => replyFuncWithAction(whoHasThisAge, ctx, typingTime));
 
-bot.launch();
+Bot.command('get_age', async ctx => replyFuncWithAction(getAge, ctx, typingTime));
+
+Bot.command('about', async ctx => replyFuncWithAction(about, ctx, typingTime));
+Bot.help(async ctx => replyFuncWithAction(help, ctx, typingTime));
+Bot.start(async ctx => replyFuncWithAction(start, ctx, typingTime));
+
+Bot.launch();
 

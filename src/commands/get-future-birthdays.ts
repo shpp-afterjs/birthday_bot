@@ -10,9 +10,9 @@ export async function getFutureBirthdays(ctx:Context) {
 	if (birthdays && birthdays.futureBirthdays.length) {
 		const usersBirthday = birthdays.futureBirthdays.reduce((res, nickname) => {
 			nickname = nickname.replace('@', '');
-			const linkToUser: string = `<a href="t.me/${nickname}">${nickname}</a>`
+			const linkToUser: string = `<a href="t.me/${nickname}">${nickname}</a>`;
 
-			return (res += `${linkToUser} \n`)
+			return (res += `${linkToUser} \n`);
 		}, '');
 
 		message = `Didn't have birthday this year yet:\n${usersBirthday}`;

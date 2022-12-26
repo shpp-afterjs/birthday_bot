@@ -12,7 +12,7 @@ export async function getPastBirthdays(ctx: Context) {
 			nickname = nickname.replace('@', '');
 			const linkToUser: string = `<a href="t.me/${nickname}">${nickname}</a>`;
 
-			return (res += `${linkToUser} \n`)
+			return (res += `${linkToUser} \n`);
 		}, '');
 
 		message = `Already had birthday this year:\n${usersBirthday}`;
