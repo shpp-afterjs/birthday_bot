@@ -1,6 +1,4 @@
-# <p align="center"> Telegram Birthday Bot <br> ![Bot quality][bot_quality] ![Bot property][bot_property] ![Made with][made_with] <br> ![Contributors][contributors] ![Top Language][top_language] ![Size of repo][repo_size]</p>
-
-## <p align="center"> ![Stars][stars] ![Issues][issues] ![Pull Request][pull_request]</p>
+# <p align="center"> Telegram Birthday Bot <br> ![Bot quality][bot_quality] ![Bot property][bot_property] ![Made with][made_with] ![Contributors][contributors] ![Top Language][top_language] ![Size of repo][repo_size] <br> ![Stars][stars] ![Issues][issues] ![Pull Request][pull_request]</p>
 
 ## <p align="center">:clipboard: Description</p>
 <p align="center">This bot was developed to help you to remind about chat members birthdays. <br>
