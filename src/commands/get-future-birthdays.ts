@@ -18,5 +18,5 @@ export async function getFutureBirthdays(ctx:Context) {
 		message = `Didn't have birthday this year yet:\n${usersBirthday}`;
 	}
 
-	await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML' });
+	await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML', disable_web_page_preview: true });
 }

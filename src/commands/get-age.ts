@@ -23,11 +23,11 @@ export async function getAge(ctx: Context) {
 
 					const message: string = userObject ? `${linkToUser} is ${age} years old` : 'There is no member with this username';
 
-					await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML' });
+					await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML', disable_web_page_preview: true });
 				}
 			}
 		} else {
-			ctx.telegram.sendMessage(ctx.message!.chat.id, 'Nickname is required', { parse_mode: 'HTML' });
+			ctx.telegram.sendMessage(ctx.message!.chat.id, 'Nickname is required', { parse_mode: 'HTML', disable_web_page_preview: true });
 		}
 	} catch (error) {
 		console.log('getAge: ', error);

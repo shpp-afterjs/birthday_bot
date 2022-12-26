@@ -18,5 +18,5 @@ export async function getPastBirthdays(ctx: Context) {
 		message = `Already had birthday this year:\n${usersBirthday}`;
 	}
 
-	await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML' });
+	await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML', disable_web_page_preview: true });
 }

@@ -29,5 +29,5 @@ export async function getBirthday(ctx:Context) {
 		}
 	}
 
-	ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML' });
+	ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'HTML', disable_web_page_preview: true });
 }
