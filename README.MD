@@ -94,7 +94,7 @@ $ npm start
 
 <br> <br> <br>
 
-<p align="right"><a href="#TOP"><b>Back to the beginning</b></a></p>
+<p align="right"><a href="#-telegram-birthday-bot-----------"><b>Back to the beginning</b></a></p>
 <p align="right"><a href="#clipboard-description"><b>Back to the description</b></a></p>
 <p align="right"><a href="#computer-technologies"><b>Back to the technologies</b></a></p>
 <p align="right"><a href="#gear-commands"><b>Back to the commands</b></a></p>
