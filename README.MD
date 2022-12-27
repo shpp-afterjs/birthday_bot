@@ -1,27 +1,21 @@
-# <p align="center"> <br> Telegram Birthday Bot <br> <br> ![Bot quality][bot_quality] ![Bot property][bot_property] ![Made with][made_with] ![Contributors][contributors] ![Top Language][top_language] ![Size of repo][repo_size] <br> ![Stars][stars] ![Issues][issues] ![Pull Request][pull_request]</p>
+# <p align="center"> Telegram Birthday Bot <br> ![Bot quality][bot_quality] ![Bot property][bot_property] ![Made with][made_with] ![Contributors][contributors] ![Top Language][top_language] ![Size of repo][repo_size] <br> ![Stars][stars] ![Issues][issues] ![Pull Request][pull_request]</p>
 
-<br>
-
-## <p align="center">:clipboard: Description</p>
-This bot was developed to help you to remind about chat members birthdays. 
+## :clipboard: Description
+This bot was developed to help you to remind about chat members birthdays. <br>
 It also has an additional functionality as getting user age,
 or checking who among members already had birthday this year.
-
-<br> 
 
 ## :computer: Technologies
 
 Project is created with:
 
->* **NodeJS 16.17.1 ![Node JS][node_js_technologie]**
+>* **NodeJS 16.17.1 <br>** ![Node JS][node_js_technologie]
 
->* **Telegraf ![Telegraf][telegraf_technologie]**
+>* **Telegraf <br> ![Telegraf][telegraf_technologie]**
 
->* **Typescript ![Typescript][typescript_technologie]**
+>* **Typescript <br> ![Typescript][typescript_technologie]**
 
->* **Google sheets API ![Google Sheets][google_sheets_technologie]**
-
-<br>
+>* **Google sheets API <br> ![Google Sheets][google_sheets_technologie]**
 
 ## :gear: Commands
 
@@ -34,9 +28,7 @@ Project is created with:
 | ```/futureBirthdays``` | : list of members who will have birthday this year |
 | ```/whoHasThisAge``` {number} | : people who has this age |
 
-<br>
-
-## <p align="center">:books: How to use</p>
+## :books: How to use
 1. **Create an empty google sheet [here][googlesheets_link]**
 2. **Get your google spreadsheet api key and take spreadsheet id from url**
 3. **Fill spreadsheet with correspoding coloumns**:
@@ -52,9 +44,7 @@ Project is created with:
 * **Telegram nickname**: *string*
 * **Status**: *string*
 
-<br> 
-
-## :file folder: Available Scripts
+## 📁 Available Scripts
 To run this project, install it locally using npm:
 
 ```
@@ -64,7 +54,7 @@ $ npm start
 
 <br> 
 
-## :man technologist: Authors
+## 👩🏻‍💻 Authors
 
 <br>
 
@@ -72,7 +62,6 @@ $ npm start
     <summary>
         <b>Viktoria Grechukha</b>
     </summary>
-    <br>
 
 * GitHub - is [here][viktoria_github]
 * LinkedIn - is [here][viktoria_linkedIn]
@@ -85,7 +74,6 @@ $ npm start
     <summary>
         <b>Valeria Proshachenko</b>
     </summary>
-    <br>
 
 * GitHub - is [here][valeria_github]
 * LinkedIn - is [here][valeria_linkedIn]
@@ -98,24 +86,21 @@ $ npm start
     <summary>
         <b>Yuliya Pirogova</b>
     </summary>
-    <br>
-
+  
 * GitHub - is [here][julia_github]
 * LinkedIn - is [here][julia_linkedIn]
-
-    <br>
 
 </details>
 
 <br> <br> <br>
 
 <p align="right"><a href="#TOP"><b>Back to the beginning</b></a></p>
-<p align="right"><a href="#📋 Description"><b>Back to the description</b></a></p>
-<p align="right"><a href="#💻 Technologies"><b>Back to the technologies</b></a></p>
-<p align="right"><a href="#⚙ Commands"><b>Back to the commands</b></a></p>
-<p align="right"><a href="#📚 How to use"><b>Back to the tutorial</b></a></p>
-<p align="right"><a href="#📁 Available Scripts"><b>Back to the list of script</b></a></p>
-<p align="right"><a href="#👨🏻‍💻 Authors"><b>Back to the Authors</b></a></p>
+<p align="right"><a href="#📋Description"><b>Back to the description</b></a></p>
+<p align="right"><a href="#💻Technologies"><b>Back to the technologies</b></a></p>
+<p align="right"><a href="#⚙Commands"><b>Back to the commands</b></a></p>
+<p align="right"><a href="#📚How to use"><b>Back to the tutorial</b></a></p>
+<p align="right"><a href="#📁Available Scripts"><b>Back to the list of script</b></a></p>
+<p align="right"><a href="#👨🏻‍💻Authors"><b>Back to the Authors</b></a></p>
 
 
 
