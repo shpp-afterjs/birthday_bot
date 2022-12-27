@@ -1,27 +1,27 @@
-# <p align="center"> Telegram Birthday Bot <br> ![Bot quality][bot_quality] ![Bot property][bot_property] ![Made with][made_with] ![Contributors][contributors] ![Top Language][top_language] ![Size of repo][repo_size] <br> ![Stars][stars] ![Issues][issues] ![Pull Request][pull_request]</p>
+# <p align="center"> <br> Telegram Birthday Bot <br> <br> ![Bot quality][bot_quality] ![Bot property][bot_property] ![Made with][made_with] ![Contributors][contributors] ![Top Language][top_language] ![Size of repo][repo_size] <br> ![Stars][stars] ![Issues][issues] ![Pull Request][pull_request]</p>
 
 <br>
 
 ## <p align="center">:clipboard: Description</p>
-<p align="center">This bot was developed to help you to remind about chat members birthdays. <br>
+This bot was developed to help you to remind about chat members birthdays. 
 It also has an additional functionality as getting user age,
-or checking who among members already had birthday this year.</p>
+or checking who among members already had birthday this year.
 
-<br> <br>
+<br> 
 
 ## :computer: Technologies
 
 Project is created with:
 
->* **nodejs 16.17.1**
+>* **NodeJS 16.17.1 ![Node JS][node_js_technologie]**
 
->* **telegraf**
+>* **Telegraf ![Telegraf][telegraf_technologie]**
 
->* **typescript**
+>* **Typescript ![Typescript][typescript_technologie]**
 
->* **google sheets**
+>* **Google sheets API ![Google Sheets][google_sheets_technologie]**
 
-<br> <br>
+<br>
 
 ## :gear: Commands
 
@@ -34,7 +34,7 @@ Project is created with:
 | ```/futureBirthdays``` | : list of members who will have birthday this year |
 | ```/whoHasThisAge``` {number} | : people who has this age |
 
-<br> <br>
+<br>
 
 ## <p align="center">:books: How to use</p>
 1. **Create an empty google sheet [here][googlesheets_link]**
@@ -52,19 +52,19 @@ Project is created with:
 * **Telegram nickname**: *string*
 * **Status**: *string*
 
-<br> <br>
+<br> 
 
-## <p align="center">Available Scripts</p>
-<p align="center">To run this project, install it locally using npm:</p>
+## :file folder: Available Scripts
+To run this project, install it locally using npm:
 
 ```
 $ npm install
 $ npm start
 ```
 
-<br> <br>
+<br> 
 
-## Authors
+## :man technologist: Authors
 
 <br>
 
@@ -109,13 +109,15 @@ $ npm start
 
 <br> <br> <br>
 
-<p align="right"><a href="#readme-top"><b>Back to the beginning</b></a></p>
-<p align="right"><a href="#:clipboard: Description"><b>Back to the description</b></a></p>
-<p align="right"><a href="#:computer: Technologies"><b>Back to the technologies</b></a></p>
-<p align="right"><a href="#:gear: Commands"><b>Back to the commands</b></a></p>
-<p align="right"><a href="#:books: How to use"><b>Back to the tutorial</b></a></p>
-<p align="right"><a href="#Available Scripts"><b>Back to the list of script</b></a></p>
-<p align="right"><a href="#Authors"><b>Back to the Authors</b></a></p>
+<p align="right"><a href="#TOP"><b>Back to the beginning</b></a></p>
+<p align="right"><a href="#📋 Description"><b>Back to the description</b></a></p>
+<p align="right"><a href="#💻 Technologies"><b>Back to the technologies</b></a></p>
+<p align="right"><a href="#⚙ Commands"><b>Back to the commands</b></a></p>
+<p align="right"><a href="#📚 How to use"><b>Back to the tutorial</b></a></p>
+<p align="right"><a href="#📁 Available Scripts"><b>Back to the list of script</b></a></p>
+<p align="right"><a href="#👨🏻‍💻 Authors"><b>Back to the Authors</b></a></p>
+
+
 
 <!--- Variables --->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -168,7 +170,7 @@ $ npm start
 
 <!--- Technologies --->
 
-[telegraf_technologie]: https://img.shields.io/badge/Telegraf-black.svg?style=flat-square&logo=telegram&logoColor=e741ff
-[node_js_technologie]: https://img.shields.io/badge/Node%20JS-black.svg?style=flat-square&logo=Node.js&logoColor=30bbff
-[typescript_technologie]: https://img.shields.io/badge/Typescript-black.svg?style=flat-square&logo=Typescript&logoColor=336fff
-[google_sheets_technologie]: https://img.shields.io/badge/Google%20sheets-black.svg?style=flat-square&logo=Google%20Sheets&logoColor=119111
+[telegraf_technologie]: https://img.shields.io/badge/Telegraf-black.svg?style=for-the-badge&logo=telegram&logoColor=e741ff&color=222
+[node_js_technologie]: https://img.shields.io/badge/Node%20JS-black.svg?style=for-the-badge&logo=Node.js&logoColor=30bbff&color=222
+[typescript_technologie]: https://img.shields.io/badge/Typescript-black.svg?style=for-the-badge&logo=Typescript&logoColor=336fff&color=222
+[google_sheets_technologie]: https://img.shields.io/badge/Google%20sheets-black.svg?style=for-the-badge&logo=Google%20Sheets&logoColor=119111&color=222
