@@ -95,12 +95,12 @@ $ npm start
 <br> <br> <br>
 
 <p align="right"><a href="#TOP"><b>Back to the beginning</b></a></p>
-<p align="right"><a href="#📋Description"><b>Back to the description</b></a></p>
-<p align="right"><a href="#💻Technologies"><b>Back to the technologies</b></a></p>
-<p align="right"><a href="#⚙Commands"><b>Back to the commands</b></a></p>
-<p align="right"><a href="#📚How to use"><b>Back to the tutorial</b></a></p>
-<p align="right"><a href="#📁Available Scripts"><b>Back to the list of script</b></a></p>
-<p align="right"><a href="#👨🏻‍💻Authors"><b>Back to the Authors</b></a></p>
+<p align="right"><a href="#clipboard-description"><b>Back to the description</b></a></p>
+<p align="right"><a href="#computer-technologies"><b>Back to the technologies</b></a></p>
+<p align="right"><a href="#gear-commands"><b>Back to the commands</b></a></p>
+<p align="right"><a href="#books-how-to-use"><b>Back to the tutorial</b></a></p>
+<p align="right"><a href="#-available-scripts"><b>Back to the list of script</b></a></p>
+<p align="right"><a href="#-authors"><b>Back to the Authors</b></a></p>
 
 
 
