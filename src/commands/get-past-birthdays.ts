@@ -19,11 +19,11 @@ export async function getPastBirthdays(ctx:Context) {
 	if (birthdays && birthdays.pastBirthdays.length && users) {
 		const usersBirthday = birthdays.pastBirthdays.reduce((res, nickName) => {
 			const userObject = users.find((item: User) => item[NICKNAME_TG] === nickName);
-			return res += `${nickName}${zodiacs[zodiacSign(userObject) as keyof typeof zodiacs]}\n`;
+			return res += `[${nickName}](t.me/${nickName})${zodiacs[zodiacSign(userObject) as keyof typeof zodiacs]}\n`;
 		}, '');
 
 		message = `Already had birthday this year:\n${usersBirthday}`;
 	}
 
-	await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+	await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'Markdown', disable_web_page_preview: true });
 }

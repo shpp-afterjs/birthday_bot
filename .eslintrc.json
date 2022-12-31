@@ -23,6 +23,7 @@
       "quotes": ["error"],
       "no-bitwise":"off",
       "simple-import-sort/exports": "error",
+      "camelcase": "off",
       "simple-import-sort/imports": [
           "error",
           {

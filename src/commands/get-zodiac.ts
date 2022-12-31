@@ -1,4 +1,3 @@
-
 import { Context } from 'telegraf';
 import { Message } from 'typegram';
 
@@ -19,8 +18,8 @@ export async function getZodiac(ctx: Context) {
 				const userObject = users.find((item: User) => item[NICKNAME_TG] === userName);
 				if (userObject) {
 					const zodiac = zodiacSign(userObject);
-					const message = `@${userName} is ${zodiac}${zodiacs[zodiac as keyof typeof zodiacs]}`;
-					ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+					const message = `[${userName}](t.me/${userName}) is ${zodiac}${zodiacs[zodiac as keyof typeof zodiacs]}`;
+					ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'Markdown', disable_web_page_preview: true });
 				} else {
 					ctx.telegram.sendMessage(ctx.message!.chat.id, `No data about @${userName}`);
 				}

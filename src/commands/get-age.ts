@@ -17,8 +17,8 @@ export async function getAge(ctx: Context) {
 				const userObject = users.find((item: User) => item[NICKNAME_TG] === userName);
 				if (userObject) {
 					const age = getCurrentAge(userObject[BIRTHDAY]);
-					const message = userObject ? `@${userObject[NICKNAME_TG]} is ${age} years old` : 'There is no member with this username';
-					await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+					const message = userObject ? `[${userObject[NICKNAME_TG]}](t.me/${userObject[NICKNAME_TG]}) is ${age} years old` : 'There is no member with this username';
+					await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'Markdown', disable_web_page_preview: true });
 				}
 			}
 		} else {

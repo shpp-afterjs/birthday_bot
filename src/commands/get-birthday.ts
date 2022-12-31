@@ -19,10 +19,10 @@ export async function getBirthday(ctx:Context) {
 
 			const daysToBirthdayLeft = await getBirthdayDaysLeft(user);
 			message = user
-				? `There are ${daysToBirthdayLeft} days until @${user[NICKNAME_TG]} birthday! \n📍${user[BIRTHDAY]}`
+				? `There are ${daysToBirthdayLeft} days until [${user[NICKNAME_TG]}](t.me/${user[NICKNAME_TG]}) birthday! \n📍${user[BIRTHDAY]}`
 				: 'There are no members with this username';
 		}
 	}
 
-	ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+	ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'Markdown', disable_web_page_preview: true });
 }

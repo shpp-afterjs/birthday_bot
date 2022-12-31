@@ -16,13 +16,13 @@ export async function whoHasThisAge(ctx:Context) {
 			const age = (ctx.message as Message.TextMessage).text.split(/\s+/)[1];
 			if (users) {
 				const sortedUsers = users.filter(((el: User) => getCurrentAge(el[BIRTHDAY]) === Number(age)));
-				const messageString = sortedUsers.reduce((str: string, user: User) => (str += `@${user[NICKNAME_TG]}\n`), '');
+				const messageString = sortedUsers.reduce((str: string, user: User) => (str += `[${user[NICKNAME_TG]}](t.me/${user[NICKNAME_TG]})\n`), '');
 
 				message = messageString ? messageString : 'There are no members with this age';
 			}
 		}
 
-		await ctx.telegram.sendMessage(ctx.message!.chat.id, message);
+		await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'Markdown', disable_web_page_preview: true });
 	} catch (error) {
 		console.log('whoHasThisAge: ', error);
 	}
