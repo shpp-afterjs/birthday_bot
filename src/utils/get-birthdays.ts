@@ -4,7 +4,7 @@ import { User } from '../interfaces/user.interface';
 
 import fetchUserData from './fetch-user-data';
 
-const { NICKNAME_TG, BIRTHDAY } = RowItemNames;
+const { BIRTHDAY } = RowItemNames;
 async function getBirthdays(): Promise<Birthdays | undefined> {
 	const users = await fetchUserData();
 	const now = new Date();
@@ -16,9 +16,9 @@ async function getBirthdays(): Promise<Birthdays | undefined> {
 			const birthdayDateThisYear = new Date(`${now.getFullYear()},${birthdayDate[1]},${birthdayDate[0]}`);
 
 			if (birthdayDateThisYear.getTime() - today.getTime() < 0) {
-				obj.pastBirthdays.push(item[NICKNAME_TG]);
+				obj.pastBirthdays.push(item);
 			} else {
-				obj.futureBirthdays.push(item[NICKNAME_TG]);
+				obj.futureBirthdays.push(item);
 			}
 
 			return obj;

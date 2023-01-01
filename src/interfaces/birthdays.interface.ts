@@ -1,4 +1,6 @@
+import { User } from './user.interface';
+
 export interface Birthdays{
-    futureBirthdays: string[],
-    pastBirthdays: string[]
+    futureBirthdays: User[],
+    pastBirthdays: User[]
 }
