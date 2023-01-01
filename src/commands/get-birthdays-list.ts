@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { Context } from 'telegraf';
 
 import { monthStickers } from '../constants/monthStickers';
