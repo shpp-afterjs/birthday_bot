@@ -1,4 +1,4 @@
-const zodiacs = {
+const zodiacs:{[key:string]: string} = {
 	Aries: '♈️',
 	Taurus: '♉️',
 	Gemini: '♊️',

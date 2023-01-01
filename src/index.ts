@@ -12,7 +12,7 @@ import { getPastBirthdays } from './commands/get-past-birthdays';
 import { getZodiac } from './commands/get-zodiac';
 import { whoHasThisAge } from './commands/who-has-this-age';
 import messages from './constants/messages';
-import { getBirthdayDay } from './utils/get-birthday-day';
+import { getBirthdayDay } from './commands/get-birthday-day';
 
 const bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
 
