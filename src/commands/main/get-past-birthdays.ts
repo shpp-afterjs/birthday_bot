@@ -1,11 +1,10 @@
-
-import { Context, Telegraf } from 'telegraf';
-import { Update } from 'telegraf/typings/core/types/typegram';
+import { Context } from 'telegraf';
 
 import { monthStickers } from '../../constants/monthStickers';
 import zodiacs from '../../constants/zodiacs';
 import { RowItemNames } from '../../enums/user.enum';
 import { User } from '../../interfaces/user.interface';
+import fetchUserData from '../../utils/fetch-user-data';
 import { getBirthdayMonths } from '../../utils/get-birthday-months';
 import getBirthdays from '../../utils/get-birthdays';
 import getRandomSticker from '../../utils/get-randomSticker';
@@ -14,8 +13,10 @@ import getMsgUpdate from '../get-msg-update';
 
 const { NICKNAME_TG, BIRTHDAY } = RowItemNames;
 
-export async function getPastBirthdays(ctx: Context, Bot: Telegraf<Context<Update>>) {
-	const users = await getMsgUpdate(ctx, Bot);
+export async function getPastBirthdays(ctx: Context) {
+	const msgUpdate = getMsgUpdate(ctx);
+	const users = await fetchUserData();
+	clearInterval(await msgUpdate);
 	const birthdays = await getBirthdays();
 
 	let message = 'There are no members who already had birthday this year';

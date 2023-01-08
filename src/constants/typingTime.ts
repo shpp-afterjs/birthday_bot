@@ -1,3 +1,3 @@
-const typingTime = 1000;
+const typingTime = 500;
 
 export default typingTime;

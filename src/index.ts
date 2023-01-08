@@ -12,6 +12,7 @@ import getAbout from './commands/main/get-about';
 import { getAge } from './commands/main/get-age';
 import { getBirthday } from './commands/main/get-birthday';
 import { getBirthdayDay } from './commands/main/get-birthday-day';
+import { getBirthdaysList } from './commands/main/get-birthdays-list';
 import { getFutureBirthdays } from './commands/main/get-future-birthdays';
 import getHelp from './commands/main/get-help';
 import { getPastBirthdays } from './commands/main/get-past-birthdays';
@@ -26,7 +27,7 @@ import teamList from './constants/inline-mode/teamList';
 import getTeamList from './utils/inline-mode/get-team-list';
 
 const bot: Telegraf<Context<Update>> = new Telegraf(
-  process.env.BOT_TOKEN as string,
+	process.env.BOT_TOKEN as string,
 );
 
 cron.schedule(
@@ -58,7 +59,7 @@ handleCommand({
 	commandName: 'past_birthdays',
 	func: getPastBirthdays,
 });
-handleCommand({ Bot: bot, commandName: 'birthdays', func: getBirthday });
+handleCommand({ Bot: bot, commandName: 'birthdays', func: getBirthdaysList });
 
 handleCommand({ Bot: bot, commandName: 'get_birthday', func: getBirthday });
 handleCommand({ Bot: bot, commandName: 'get_age', func: getAge });

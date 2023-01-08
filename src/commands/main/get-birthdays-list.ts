@@ -1,18 +1,20 @@
-import { Context, Telegraf } from 'telegraf';
-import { Update } from 'telegraf/typings/core/types/typegram';
+import { Context } from 'telegraf';
 
 import { monthStickers } from '../../constants/monthStickers';
 import zodiacs from '../../constants/zodiacs';
 import { RowItemNames } from '../../enums/user.enum';
 import { User } from '../../interfaces/user.interface';
+import fetchUserData from '../../utils/fetch-user-data';
 import { getBirthdayMonths } from '../../utils/get-birthday-months';
 import getRandomSticker from '../../utils/get-randomSticker';
 import { zodiacSign } from '../../utils/zodiac-sign';
 import getMsgUpdate from '../get-msg-update';
 
 const { NICKNAME_TG, BIRTHDAY } = RowItemNames;
-export async function getBirthdaysList(ctx: Context, Bot: Telegraf<Context<Update>>) {
-	const users = await getMsgUpdate(ctx, Bot);
+export async function getBirthdaysList(ctx: Context) {
+	const msgUpdate = getMsgUpdate(ctx);
+	const users = await fetchUserData();
+	clearInterval(await msgUpdate);
 
 	if (users) {
 		const sortedObj = getBirthdayMonths(users);

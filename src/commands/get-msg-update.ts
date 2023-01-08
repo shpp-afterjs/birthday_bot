@@ -1,28 +1,19 @@
-import { Context, Telegraf } from 'telegraf';
-import { Update } from 'telegraf/typings/core/types/typegram';
-
-import fetchUserData from '../utils/fetch-user-data';
+import { Context } from 'telegraf';
 
 import getLoadingAnimation from './get-loading-animation';
 
-async function getMsgUpdate(ctx: Context, bot: Telegraf<Context<Update>>) {
-	// @ts-ignore
-	const { id } = ctx.update.message.chat;
-	// @ts-ignore
-	const { message_id } = ctx.update.message;
+async function getMsgUpdate(ctx: Context): Promise<any | void> {
+	try {
+		await ctx.reply('<b> Updating \\ </b>', { parse_mode: 'HTML' });
 
-	await bot.telegram.sendMessage(id, '<b> Updating \\ </b>', { parse_mode: 'HTML' });
+		const updateMessage = setInterval(() => {
+			getLoadingAnimation(ctx);
+		}, 1000);
 
-	const updateMessage = setInterval(() => {
-		getLoadingAnimation(ctx);
-	}, 1000);
-
-	const users = await fetchUserData();
-
-	clearInterval(updateMessage);
-	ctx.telegram.deleteMessage(id, message_id + 1);
-
-	return users;
+		return updateMessage;
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export default getMsgUpdate;

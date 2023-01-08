@@ -1,15 +1,19 @@
-import { Context, Telegraf } from 'telegraf';
-import { Message, Update } from 'typegram';
+import { Context } from 'telegraf';
+import { Message } from 'typegram';
 
 import { RowItemNames } from '../../enums/user.enum';
 import { User } from '../../interfaces/user.interface';
+import fetchUserData from '../../utils/fetch-user-data';
 import getCurrentAge from '../../utils/get-current-age';
 import getMsgUpdate from '../get-msg-update';
 
 const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
-export async function whoHasThisAge(ctx: Context, Bot: Telegraf<Context<Update>>) {
+export async function whoHasThisAge(ctx: Context) {
 	try {
-		const users = await getMsgUpdate(ctx, Bot);
+		const msgUpdate = getMsgUpdate(ctx);
+		const users = await fetchUserData();
+		clearInterval(await msgUpdate);
+
 		let message = 'Age is required';
 
 		if (/\s+/.test((ctx.message as Message.TextMessage).text)) {

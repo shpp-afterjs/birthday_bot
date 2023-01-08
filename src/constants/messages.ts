@@ -9,7 +9,7 @@ const messages = {
 	/futureBirthdays - list of members who will have birthday this year
 	/whoHasThisAge {number} - people who has this age
 	/getZodiac {@nickname} - zodiac sign of member`,
-	ABOUT_MESSAGE: 'This bot will help you to remember your team birthdays. Source code: github.com/shpp-afterjs/birthday_bot',
+	ABOUT_MESSAGE: 'This bot will help you to remember your team birthdays. Source code is <a href="github.com/shpp-afterjs/birthday_bot">here</a>.',
 };
 
 export default messages;

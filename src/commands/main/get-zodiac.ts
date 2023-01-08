@@ -1,17 +1,20 @@
-import { Context, Telegraf } from 'telegraf';
-import { Message, Update } from 'typegram';
+import { Context } from 'telegraf';
+import { Message } from 'typegram';
 
 import zodiacs from '../../constants/zodiacs';
 import { RowItemNames } from '../../enums/user.enum';
 import { User } from '../../interfaces/user.interface';
+import fetchUserData from '../../utils/fetch-user-data';
 import { zodiacSign } from '../../utils/zodiac-sign';
 import getMsgUpdate from '../get-msg-update';
 
 const { NICKNAME_TG } = RowItemNames;
 
-export async function getZodiac(ctx: Context, Bot: Telegraf<Context<Update>>) {
+export async function getZodiac(ctx: Context) {
 	try {
-		const users = await getMsgUpdate(ctx, Bot);
+		const msgUpdate = getMsgUpdate(ctx);
+		const users = await fetchUserData();
+		clearInterval(await msgUpdate);
 		if (/\s+/.test((ctx.message as Message.TextMessage).text)) {
 			const userName = (ctx.message as Message.TextMessage).text.split(/\s+/)[1].split('@')[1];
 			if (users) {
