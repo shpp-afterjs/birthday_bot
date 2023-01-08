@@ -1,13 +1,12 @@
+import { Context } from 'telegraf';
+
 import typingTime from '../constants/typingTime';
-import ReplyMsgWithAction from '../interfaces/reply-msg-with-action.interface';
 
-import handleCommand from './handle-command';
-
-function replyMsgWithAction(args: ReplyMsgWithAction) {
-	args.ctx.replyWithChatAction('typing');
+function replyMsgWithAction(ctx: Context, func: Function) {
+	ctx.replyWithChatAction('typing');
 
 	setTimeout(() => {
-		handleCommand(args);
+		func(ctx);
 	}, typingTime);
 }
 
