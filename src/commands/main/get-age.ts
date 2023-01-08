@@ -1,16 +1,16 @@
-import { Context } from 'telegraf';
-import { Message } from 'typegram';
+import { Context, Telegraf } from 'telegraf';
+import { Message, Update } from 'typegram';
 
-import { RowItemNames } from '../enums/user.enum';
-import { User } from '../interfaces/user.interface';
-import fetchUserData from '../utils/fetch-user-data';
-import getCurrentAge from '../utils/get-current-age';
+import { RowItemNames } from '../../enums/user.enum';
+import { User } from '../../interfaces/user.interface';
+import getCurrentAge from '../../utils/get-current-age';
+import getMsgUpdate from '../get-msg-update';
 
 const { NICKNAME_TG, BIRTHDAY } = RowItemNames;
 
-export async function getAge(ctx: Context) {
+export async function getAge(ctx: Context, Bot: Telegraf<Context<Update>>) {
 	try {
-		const users = await fetchUserData();
+		const users = await getMsgUpdate(ctx, Bot);
 		if (/\s+/.test((ctx.message as Message.TextMessage).text)) {
 			const userName = (ctx.message as Message.TextMessage).text.split(/\s+/)[1].split('@')[1];
 			if (users) {

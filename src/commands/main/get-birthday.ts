@@ -1,14 +1,14 @@
-import { Context } from 'telegraf';
-import { Message } from 'typegram';
+import { Context, Telegraf } from 'telegraf';
+import { Message, Update } from 'typegram';
 
-import { RowItemNames } from '../enums/user.enum';
-import { User } from '../interfaces/user.interface';
-import fetchUserData from '../utils/fetch-user-data';
-import { getBirthdayDaysLeft } from '../utils/get-birthday-days-left';
+import { RowItemNames } from '../../enums/user.enum';
+import { User } from '../../interfaces/user.interface';
+import { getBirthdayDaysLeft } from '../../utils/get-birthday-days-left';
+import getMsgUpdate from '../get-msg-update';
 
 const { NICKNAME_TG, BIRTHDAY } = RowItemNames;
-export async function getBirthday(ctx:Context) {
-	const users = await fetchUserData();
+export async function getBirthday(ctx: Context, Bot: Telegraf<Context<Update>>) {
+	const users = await getMsgUpdate(ctx, Bot);
 	let message = 'Nickname is required';
 
 	if (/\s+/.test((ctx.message as Message.TextMessage).text)) {

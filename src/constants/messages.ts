@@ -1,4 +1,5 @@
 const messages = {
+	START_MESSAGE: 'Hello! It\'s the birthday bot!',
 	HELP_MESSAGE:
 	`/about - about this bot
 	/birthdays - list of all birthdays

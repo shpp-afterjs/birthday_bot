@@ -1,15 +1,14 @@
-
 import { Context, Telegraf } from 'telegraf';
-import { Update } from 'typegram';
+import { Update } from 'telegraf/typings/core/types/typegram';
 
-import stickers from '../constants/stickers';
-import { RowItemNames } from '../enums/user.enum';
-import fetchUserData from '../utils/fetch-user-data';
-import getRandomSticker from '../utils/get-randomSticker';
+import stickers from '../../constants/stickers';
+import { RowItemNames } from '../../enums/user.enum';
+import fetchUserData from '../../utils/fetch-user-data';
+import getRandomSticker from '../../utils/get-randomSticker';
 
 const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
 
-export async function getBirthdayDay(bot:Telegraf<Context<Update>>) {
+export async function getBirthdayDay(bot: Telegraf<Context<Update>>) {
 	const now = new Date();
 	const users = await fetchUserData();
 	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
