@@ -18,8 +18,6 @@ Project is created with:
 
 > - **Google sheets API ![Google Sheets][google_sheets_technologie]**
 
-<br>
-
 ## :gear: Commands
 
 |          Command           | Description                                          |
@@ -30,8 +28,6 @@ Project is created with:
 |      `/pastBirthdays`      | : list of members who already had birthday this year |
 |     `/futureBirthdays`     | : list of members who will have birthday this year   |
 | `/whoHasThisAge` {number}  | : people who has this age                            |
-
-<br>
 
 ## :books: How to use
 
@@ -51,8 +47,6 @@ Project is created with:
 - **Telegram nickname**: _`string`_
 - **Status**: _`string`_
 
-<br>
-
 ## :file folder: Available Scripts
 
 To run this project, install it locally using npm:
@@ -61,8 +55,6 @@ To run this project, install it locally using npm:
 $ npm install
 $ npm start
 ```
-
-<br>
 
 ## :man technologist: Authors
 
