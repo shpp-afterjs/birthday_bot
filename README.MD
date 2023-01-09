@@ -47,7 +47,7 @@ Project is created with:
 - **Telegram nickname**: _`string`_
 - **Status**: _`string`_
 
-## :file folder: Available Scripts
+## 📁 Available Scripts
 
 To run this project, install it locally using npm:
 
@@ -56,7 +56,7 @@ $ npm install
 $ npm start
 ```
 
-## :man technologist: Authors
+## 👩🏻‍💻 Authors
 
 <br>
 
