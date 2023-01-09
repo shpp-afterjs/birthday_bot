@@ -10,7 +10,6 @@ const commandsList: CommandsList = [
 	{ command: '/get_birthday', description: 'birthday of specific user' },
 	{ command: '/get_age', description: 'age of specific user' },
 	{ command: '/who_has_this_age', description: 'get users with specific age' },
-	{ command: '/inline_keyboard', description: 'get inline keyboard' },
 	{ command: '/callback_keyboard', description: 'get callback keyboard' },
 ];
 

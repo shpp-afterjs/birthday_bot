@@ -19,7 +19,6 @@ import { getPastBirthdays } from './commands/main/get-past-birthdays';
 import getStart from './commands/main/get-start';
 import { getZodiac } from './commands/main/get-zodiac';
 import getCallbackKeyboard from './commands/main/keyboards/callback/get-callback-keyboard';
-import getInlineKeyboard from './commands/main/keyboards/inline/get-inline-keyboard';
 import removeKeyboards from './commands/main/keyboards/remove-keyboards';
 import { whoHasThisAge } from './commands/main/who-has-this-age';
 import commandsList from './constants/command-list';
@@ -74,11 +73,6 @@ handleCommand({ Bot: bot, commandName: 'start', func: getStart });
 handleCommand({ Bot: bot, commandName: 'help', func: getHelp });
 handleCommand({ Bot: bot, commandName: 'about', func: getAbout });
 
-handleCommand({
-	Bot: bot,
-	commandName: 'inline_keyboard',
-	func: getInlineKeyboard,
-});
 bot.command('callback_keyboard', ctx => getCallbackKeyboard(ctx));
 
 removeKeyboards(bot);
