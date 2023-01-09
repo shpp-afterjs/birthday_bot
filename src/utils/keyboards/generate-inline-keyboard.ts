@@ -10,11 +10,11 @@ function generateInlineKeyboard(): Queries {
 					{ text: '/help' },
 				],
 				[
-					{ text: '/future_birthdays' },
+					{ text: '/birthdays' },
 				],
 				[
+					{ text: '/future_birthdays' },
 					{ text: '/past_birthdays' },
-					{ text: '/birthdays' },
 				],
 				[
 					{ text: '/callback_keyboard' },

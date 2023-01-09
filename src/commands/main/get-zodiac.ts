@@ -13,8 +13,16 @@ const { NICKNAME_TG } = RowItemNames;
 export async function getZodiac(ctx: Context) {
 	try {
 		const msgUpdate = getMsgUpdate(ctx);
+
 		const users = await fetchUserData();
+
 		clearInterval(await msgUpdate);
+		// @ts-ignore
+		const { id } = ctx.chat;
+		// @ts-ignore
+		const { message_id } = ctx.message;
+		ctx.telegram.deleteMessage(id, message_id + 1);
+
 		if (/\s+/.test((ctx.message as Message.TextMessage).text)) {
 			const userName = (ctx.message as Message.TextMessage).text.split(/\s+/)[1].split('@')[1];
 			if (users) {

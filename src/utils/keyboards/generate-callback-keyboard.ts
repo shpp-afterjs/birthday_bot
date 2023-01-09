@@ -14,11 +14,11 @@ function generateCallbackKeyboard(ctx: Context): Queries {
 					{ text: 'help  🆘', callback_data: 'help' },
 				],
 				[
-					{ text: 'future birthdays  🎂', callback_data: 'future_birthdays' },
+					{ text: 'birthdays  🎂', callback_data: 'birthdays' },
 				],
 				[
 					{ text: 'past birthdays  🎂', callback_data: 'past_birthdays' },
-					{ text: 'birthdays  🎂', callback_data: 'birthdays' },
+					{ text: 'future birthdays  🎂', callback_data: 'future_birthdays' },
 				],
 				[
 					{ text: 'inline keyboard ⌨', callback_data: 'inline_keyboard' },

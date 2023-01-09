@@ -14,28 +14,40 @@ import getMsgUpdate from '../get-msg-update';
 const { NICKNAME_TG, BIRTHDAY } = RowItemNames;
 
 export async function getFutureBirthdays(ctx: Context) {
-	const msgUpdate = getMsgUpdate(ctx);
-	const users = await fetchUserData();
-	clearInterval(await msgUpdate);
-	const birthdays = await getBirthdays();
+	try {
+		const msgUpdate = getMsgUpdate(ctx);
 
-	let message = 'There are no members who didn\'t have birthday yet';
+		const users = await fetchUserData();
 
-	if (birthdays && birthdays.futureBirthdays.length && users) {
-		const sortedObj = getBirthdayMonths(birthdays.futureBirthdays);
-		let birthdaysList = '';
-		for (const key in sortedObj) {
-			if ({}.hasOwnProperty.call(sortedObj, key)) {
-				if (sortedObj[key].length > 0) {
-					birthdaysList += `\n${getRandomSticker(monthStickers[key])}${key}\n${sortedObj[key].map((item: User) => (
-						`[${item[NICKNAME_TG]}](t.me/${item[NICKNAME_TG]})-${item[BIRTHDAY]}${zodiacs[zodiacSign(item) as keyof typeof zodiacs]}`))
-						.join('\n')}\n`;
+		clearInterval(await msgUpdate);
+		// @ts-ignore
+		const { id } = ctx.chat;
+		// @ts-ignore
+		const { message_id } = ctx.message;
+		ctx.telegram.deleteMessage(id, message_id + 1);
+
+		const birthdays = await getBirthdays();
+
+		let message = 'There are no members who didn\'t have birthday yet';
+
+		if (birthdays && birthdays.futureBirthdays.length && users) {
+			const sortedObj = getBirthdayMonths(birthdays.futureBirthdays);
+			let birthdaysList = '';
+			for (const key in sortedObj) {
+				if ({}.hasOwnProperty.call(sortedObj, key)) {
+					if (sortedObj[key].length > 0) {
+						birthdaysList += `\n${getRandomSticker(monthStickers[key])}${key}\n${sortedObj[key].map((item: User) => (
+							`[${item[NICKNAME_TG]}](t.me/${item[NICKNAME_TG]})-${item[BIRTHDAY]}${zodiacs[zodiacSign(item) as keyof typeof zodiacs]}`))
+							.join('\n')}\n`;
+					}
 				}
 			}
+
+			message = `Didn't have birthday this year yet:\n${birthdaysList}`;
 		}
 
-		message = `Didn't have birthday this year yet:\n${birthdaysList}`;
+		await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'Markdown', disable_web_page_preview: true });
+	} catch (error) {
+		console.log(error);
 	}
-
-	await ctx.telegram.sendMessage(ctx.message!.chat.id, message, { parse_mode: 'Markdown', disable_web_page_preview: true });
 }

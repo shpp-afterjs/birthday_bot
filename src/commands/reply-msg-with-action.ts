@@ -3,11 +3,15 @@ import { Context } from 'telegraf';
 import typingTime from '../constants/typingTime';
 
 function replyMsgWithAction(ctx: Context, func: Function) {
-	ctx.replyWithChatAction('typing');
+	try {
+		ctx.replyWithChatAction('typing');
 
-	setTimeout(() => {
-		func(ctx);
-	}, typingTime);
+		setTimeout(() => {
+			func(ctx);
+		}, typingTime);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export default replyMsgWithAction;

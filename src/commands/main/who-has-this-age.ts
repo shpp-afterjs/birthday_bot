@@ -11,8 +11,15 @@ const { BIRTHDAY, NICKNAME_TG } = RowItemNames;
 export async function whoHasThisAge(ctx: Context) {
 	try {
 		const msgUpdate = getMsgUpdate(ctx);
+
 		const users = await fetchUserData();
+
 		clearInterval(await msgUpdate);
+		// @ts-ignore
+		const { id } = ctx.chat;
+		// @ts-ignore
+		const { message_id } = ctx.message;
+		ctx.telegram.deleteMessage(id, message_id + 1);
 
 		let message = 'Age is required';
 

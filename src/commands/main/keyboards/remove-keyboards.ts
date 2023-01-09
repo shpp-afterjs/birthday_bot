@@ -10,7 +10,7 @@ async function removeKeyboards(bot: Telegraf<Context<Update>>): Promise<void> {
 	bot.command('remove', ctx => removeInlineKeyboard(ctx));
 	bot.command(`remove@${botUsername}`, ctx => removeInlineKeyboard(ctx));
 
-	bot.command('remove', ctx => removeCallbackKeyboard(ctx));
+	bot.action('remove', ctx => removeCallbackKeyboard(ctx));
 	bot.action(`remove@${botUsername}`, ctx => removeCallbackKeyboard(ctx));
 }
 
