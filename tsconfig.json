@@ -9,6 +9,6 @@
     "lib": ["es2021"],
     "skipLibCheck": true,
     "rootDir": "src",
-    "outDir": "functions/bot"
+    "outDir": "dist"
   }
 }
